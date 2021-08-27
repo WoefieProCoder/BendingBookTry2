@@ -1,0 +1,9 @@
+name: BendingBook
+version: '${project.version}'
+main: me.woefie.bendingbook.BBMain
+api-version: 1.16
+authors: [ Woefie ]
+description: A plugin to make a bendingbook
+
+commands:
+  bendingbook:
