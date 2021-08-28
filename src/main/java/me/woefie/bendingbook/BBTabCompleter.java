@@ -1,5 +1,6 @@
 package me.woefie.bendingbook;
 
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
@@ -12,6 +13,7 @@ public class BBTabCompleter implements TabCompleter {
 
     List<String> tabs = new ArrayList<String>();
     List<String> helptabs = new ArrayList<String>();
+    List<String> names = new ArrayList<>();
 
     @Override
     public List<String> onTabComplete(CommandSender sender, Command cmd, String label, String[] args) {
@@ -39,8 +41,19 @@ public class BBTabCompleter implements TabCompleter {
                 }
             }
         }
+
+        if (names.isEmpty()) {
+            if (args[0].equalsIgnoreCase("give")) {
+                if (player.hasPermission("woefie.bendingbook.give")) {
+                    for (Player p : Bukkit.getOnlinePlayers()) {
+                        names.add(p.getName());
+                    }
+                }
+            }
+        }
         List<String> helpresults = new ArrayList<String>();
         List<String> results = new ArrayList<String>();
+        List<String> nameresults = new ArrayList<String>();
         if (args.length == 1) {
             for (String a : tabs) {
                 if (a.toLowerCase().startsWith(args[0].toLowerCase()))
@@ -49,11 +62,21 @@ public class BBTabCompleter implements TabCompleter {
             return results;
 
         } else if (args.length == 2) {
-            for (String a : helptabs) {
-                if (a.toLowerCase().startsWith(args[1].toLowerCase()))
-                    helpresults.add(a);
+            if (args[0].equalsIgnoreCase("help") || args[0].equalsIgnoreCase("?")) {
+                for (String a : helptabs) {
+                    if (a.toLowerCase().startsWith(args[1].toLowerCase()))
+                        helpresults.add(a);
+                }
+                return helpresults;
+            } else if (args[0].equalsIgnoreCase("give")) {
+                for (String b : names) {
+                    if (b.toLowerCase().startsWith(args[1].toLowerCase()))
+                        nameresults.add(b);
+                }
+                names.clear();
+                return nameresults;
             }
-            return helpresults;
+
         }
         return null;
 

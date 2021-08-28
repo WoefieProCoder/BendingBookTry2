@@ -85,7 +85,7 @@ public class BBGetBook implements CommandExecutor {
                                     player.sendMessage(ChatColor.BOLD + "" + ChatColor.YELLOW + "Usage: /bendingbook help {create/give/help/?}");
                                 }
                             }else {
-                                player.sendMessage(ChatColor.YELLOW + "" + ChatColor.BOLD + "BendingBook V1.0 by Woefie.");
+                                player.sendMessage(ChatColor.YELLOW + "" + ChatColor.BOLD + "BendingBook V1.1 by Woefie.");
                                 player.sendMessage(ChatColor.BOLD + "" + ChatColor.YELLOW + "Usage: /bendingbook help {create/give/help/?}");
                                 return false;
                             }
@@ -94,12 +94,12 @@ public class BBGetBook implements CommandExecutor {
                             return false;
                         }
                     } else {
-                        sender.sendMessage(ChatColor.YELLOW + "" + ChatColor.BOLD + "BendingBook V1.0 by Woefie.");
+                        sender.sendMessage(ChatColor.YELLOW + "" + ChatColor.BOLD + "BendingBook V1.1 by Woefie.");
                         sender.sendMessage(ChatColor.BOLD + "" + ChatColor.YELLOW + "Usage: /bendingbook {create/give/help/?}");
                         return false;
                     }
                 }else {
-                    sender.sendMessage(ChatColor.YELLOW + "" + ChatColor.BOLD + "BendingBook V1.0 by Woefie.");
+                    sender.sendMessage(ChatColor.YELLOW + "" + ChatColor.BOLD + "BendingBook V1.1 by Woefie.");
                     sender.sendMessage(ChatColor.BOLD + "" + ChatColor.YELLOW + "Usage: /bendingbook {create/give/help/?}");
                     return false;
                 }
